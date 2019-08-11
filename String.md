@@ -1,8 +1,8 @@
-# Arrays
+# String
 
 + [Group Anagrams](#Group-Anagrams)
 + [Longest Palindromic Substring](#Longest-Palindromic-Substring)
-+ [ Longest Substring Without Repeating Characters](#Longest-Substring-Without-Repeating-Characters)
++ [Longest Substring Without Repeating Characters](#Longest-Substring-Without-Repeating-Characters)
 
 ## Group Anagrams
 https://leetcode.com/problems/group-anagrams/
