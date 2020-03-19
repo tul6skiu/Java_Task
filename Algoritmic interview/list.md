@@ -7,7 +7,7 @@
 + [Remove Nth Node From End of List](#Remove-Nth-Node-From-End-of-List)
 + [Add Two Numbers](#Add-Two-Numbers)
 + [Palindrome LinkedList](#Palindrome-LinkedList)
-+ [Reverse Linked List](#Revers-Linked-List)
++ [Reverse Linked List](#Reverse-Linked-List)
 
 ## Sort List
 https://leetcode.com/problems/sort-list/
