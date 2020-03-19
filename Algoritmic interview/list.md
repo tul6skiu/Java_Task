@@ -8,6 +8,7 @@
 + [Add Two Numbers](#Add-Two-Numbers)
 + [Palindrome LinkedList](#Palindrome-LinkedList)
 + [Reverse Linked List](#Reverse-Linked-List)
++ [Remove LikedList Elements](#Remove-LinkedList-Elements)
 
 ## Sort List
 https://leetcode.com/problems/sort-list/
@@ -290,5 +291,20 @@ Given a singly linked list, determine if it is a palindrome.
         }
         head = prev;
         return head;
+    }
+```
+## Remove LinkedList Elements
+```java
+
+     ListNode newHead = new ListNode(0);
+     ListNode res = newHead;
+        newHead.next = head;
+        while (res != null && res.next != null) {
+            if (res.next.val == val) {
+                res.next = res.next.next;
+            }else
+                res = res.next;
+        }
+        return newHead.next;
     }
 ```
