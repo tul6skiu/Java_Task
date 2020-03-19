@@ -65,6 +65,9 @@ The maximum depth is the number of nodes along the longest path from the root no
 ```
 
 ## Same Tree
+Given two binary trees, write a function to check if they are the same or not.
+Two binary trees are considered the same if they are structurally identical and the nodes have the same value.
+
 ```java
  public boolean isSameTree(TreeNode p, TreeNode q) {
         return isSymmetricTwoTree(p, q);
