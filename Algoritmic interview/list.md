@@ -9,6 +9,7 @@
 + [Palindrome LinkedList](#Palindrome-LinkedList)
 + [Reverse Linked List](#Reverse-Linked-List)
 + [Remove LikedList Elements](#Remove-LinkedList-Elements)
++ [Intersection of Two Linked Lists](#Intersection-of-Two-Linked-Lists)
 
 ## Sort List
 https://leetcode.com/problems/sort-list/
@@ -306,5 +307,25 @@ Given a singly linked list, determine if it is a palindrome.
                 res = res.next;
         }
         return newHead.next;
+    }
+```
+## Intersection of Two Linked Lists
+```java
+public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+         if (headA == null && headB == null) {return headA;}
+        Set<ListNode> set = new HashSet<ListNode>();
+        while (headA != null) {
+            set.add(headA);
+            headA = headA.next;
+        }
+        while (headB != null) {
+            if (!set.contains(headB)) {
+                set.add(headB);
+                headB = headB.next;
+            }
+            else
+                break;
+        }
+        return headB;
     }
 ```
