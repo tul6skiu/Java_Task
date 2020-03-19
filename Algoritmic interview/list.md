@@ -295,7 +295,7 @@ Given a singly linked list, determine if it is a palindrome.
 ```
 ## Remove LinkedList Elements
 ```java
-
+   public ListNode removeElements(ListNode head, int val) {
      ListNode newHead = new ListNode(0);
      ListNode res = newHead;
         newHead.next = head;
