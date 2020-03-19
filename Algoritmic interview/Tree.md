@@ -4,6 +4,8 @@
 + [Symmetric Tree](#Symmetric-Tree)
 + [Maximum Depth](#Maximum-Depth)
 + [Same Tree](#Same-Tree)
++ [Invert Binary Tree](#Invert-Binary-Tree)
++ [Path Sum](#Path-Sum)
 
 ## Binary Tree Inorder Traversal
 Given a binary tree, return the inorder traversal of its nodes' values.
@@ -77,5 +79,32 @@ Two binary trees are considered the same if they are structurally identical and 
         if (t1 == null || t2 == null) {return false;}
         if (t1.val != t2.val) {return false;}
         return isSymmetricTwoTree(t1.left, t2.left) && isSymmetricTwoTree(t1.right, t2.right);
+    }
+```
+## Invert Binary Tree
+Invert a binary tree.
+```java
+   public TreeNode invertTree(TreeNode root) {
+        if (root == null) {return null;}
+        
+        TreeNode left = invertTree(root.left);
+        TreeNode right = invertTree(root.right);
+        root.left = right;
+        root.right = left;
+        return root;
+    }
+```
+
+## Path Sum
+Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum
+```java
+public boolean hasPathSum(TreeNode root, int target) {
+        if (root == null) {return false;}
+        target -= root.val;
+
+        if (target == 0 && root.left == null && root.right == null) {
+            return true;
+        }
+        return hasPathSum(root.left, target) || hasPathSum(root.right, target);
     }
 ```
