@@ -2,6 +2,8 @@
 
 + [Binary Tree Inorder Traversal](#Binary-Tree-Inorder-Traversal)
 + [Symmetric Tree](#Symmetric-Tree)
++ [Maximum Depth](#Maximum-Depth)
++ [Same Tree](#Same-Tree)
 
 ## Binary Tree Inorder Traversal
 Given a binary tree, return the inorder traversal of its nodes' values.
@@ -46,5 +48,31 @@ Given a binary tree, check whether it is a mirror of itself (ie, symmetric aroun
             queue.add(rightNode.left);
         }
         return true;
+    }
+```
+
+## Maximum-Depth
+Given a binary tree, find its maximum depth.
+The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
+
+```java
+ public int maxDepth(TreeNode root) {
+    if (root == null) return 0;
+     int Left = maxDepth(root.left);
+     int Right = maxDepth(root.right);
+     return Math.max(Left,Right) + 1;
+    }
+```
+
+## Same Tree
+```java
+ public boolean isSameTree(TreeNode p, TreeNode q) {
+        return isSymmetricTwoTree(p, q);
+    }
+    private boolean isSymmetricTwoTree(TreeNode t1, TreeNode t2) {
+        if (t1 == null && t2 == null) {return true;}
+        if (t1 == null || t2 == null) {return false;}
+        if (t1.val != t2.val) {return false;}
+        return isSymmetricTwoTree(t1.left, t2.left) && isSymmetricTwoTree(t1.right, t2.right);
     }
 ```
