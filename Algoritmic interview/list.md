@@ -6,6 +6,8 @@
 + [Swap Nodes in Pairs](#Swap-Nodes-in-Pairs)
 + [Remove Nth Node From End of List](#Remove-Nth-Node-From-End-of-List)
 + [Add Two Numbers](#Add-Two-Numbers)
++ [Palindrome LinkedList](#Palindrome-LinkedList)
++ [Reverse Linked List](#Revers-Linked-List)
 
 ## Sort List
 https://leetcode.com/problems/sort-list/
@@ -219,4 +221,74 @@ public class Solution{
         return res.next;
     }
 }
+```
+## Palindrome LinkedList
+Given a singly linked list, determine if it is a palindrome.
+
+```java
+ public ListNode  findMiddleNode2(ListNode head) {
+        Stack<ListNode> stack = new Stack<ListNode>();
+        ListNode slow = head;
+        ListNode fast = head;
+        ListNode second = null;
+        while (fast != null) {
+            fast = fast.next;
+            if (fast != null && fast.next != null) {
+                slow = slow.next;
+                fast = fast.next;
+            }
+        }
+        return slow;
+    }
+
+    public ListNode revers2(ListNode current) {
+        ListNode res;
+        ListNode prev = null;
+        while (current != null) {
+            res = current.next;
+
+            current.next = prev;
+            prev = current;
+            current = res;
+        }
+        return prev;
+    }
+    public boolean isPalindrome(ListNode head) {
+        if (head == null) {return true;}
+        ListNode middle = findMiddleNode2(head);
+
+        ListNode second = middle.next;
+
+        middle.next=null;
+
+        ListNode reverse = revers2(second);
+        while (head != null && reverse != null) {
+            if (head.val == reverse.val) {
+                head = head.next;
+                reverse = reverse.next;
+                continue;
+            }else
+                return false;
+        }
+        return true;
+    }
+ ```
+ 
+ ## Reverse Linked List
+ Reverse a singly linked list.
+ 
+ ```java
+ public ListNode reverseList(ListNode head) {
+        ListNode res = null;
+        ListNode prev = null;
+        ListNode curr = head;
+        while (curr != null) {
+            res = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = res;
+        }
+        head = prev;
+        return head;
+    }
 ```
