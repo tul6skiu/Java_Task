@@ -4,6 +4,7 @@
 + [Find Minimum in Rotated Sorted Array](#Find-Minimum-in-Rotated-Sorted-Array)
 + [Remove duplicates from array](#Remove-duplicates-from-array)
 + [Find First and Last Position of Element in Sorted Array](#Find-First-and-Last-Position-of-Element-in-Sorted-Array)
++ [Rotate matrix](#Rotate-matrix)
 
 ## Find the Duplicate Number
 Find First and Last Position of Element in Sorted Array
@@ -116,3 +117,27 @@ public class searchRange {
 }
 ```
 
+## Rotate matrix
+```java
+ public static int[][] rotateMatrix(int[][] arr) {
+
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                int tmp = arr[i][j];
+                arr[i][j] = arr[j][i];
+                arr[j][i] = tmp;
+            }
+        }
+
+        int left = 0, right = arr.length - 1;
+        while (left < right) {
+            for (int i = 0; i < arr.length; i++) {
+                int tmp = arr[i][left];
+                arr[i][left] = arr[i][right];
+                arr[i][right] = tmp;
+            }
+            left++;
+            right--;
+        }
+        return arr;
+    }
