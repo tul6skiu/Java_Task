@@ -72,6 +72,20 @@ Given a binary tree, check whether it is a mirror of itself (ie, symmetric aroun
         return true;
     }
 ```
+## Рекурсивная реализация
+```java
+     public boolean isSymmetric(TreeNode root) {
+          return check(root, root);
+    }
+
+   public boolean check(TreeNode nodeLeft, TreeNode nodeRight) {
+       if (nodeLeft == null && nodeRight == null) {return true;}
+       if (nodeLeft == null || nodeRight == null) {return false;}
+       if (nodeLeft.val != nodeRight.val) {return false;}
+       return check(nodeLeft.left, nodeRight.right);
+    
+   }
+```
 
 ## Maximum-Depth
 Given a binary tree, find its maximum depth.
