@@ -7,6 +7,26 @@
 + [Invert Binary Tree](#Invert-Binary-Tree)
 + [Path Sum](#Path-Sum)
 
+## Обход Inorder ( практика ):
+Алгоритм Inorder (дерево)
+```
+   1 Пройдите по левому поддереву, т.е. вызовите Inorder (левое поддерево)
+   2 Посетите корень.
+   3 Пройдите по правому поддереву, т.е. вызовите Inorder (правое поддерево)
+```
+## Preorder Traversal
+```text
+   1. Посетите корень. 
+   2. Пройдите по левому поддереву, т.е. вызовите предзаказ (левое поддерево) 
+   3. Пройдите по правому поддереву, то есть вызовите предзаказ (правое поддерево)
+```
+## Postorder Traversal
+```
+   1. Обход левого поддерева, т. Е. Вызов Postorder (левое поддерево) 
+   2. Обход правого поддерева, т. Е. Вызов Postorder (правое поддерево) 
+   3. Посетите корень.
+```
+
 ## Binary Tree Inorder Traversal
 Given a binary tree, return the inorder traversal of its nodes' values.
 ```java
