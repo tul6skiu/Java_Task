@@ -29,7 +29,7 @@ public class Solution {
             queue.add(s);
             while (queue.size() != 0) {
                 s = queue.poll();
-                System.out.println(s + " ");
+      
                 Iterator<Integer> i = adj[s].listIterator();
                 while (i.hasNext()) {
                     int n = i.next();
@@ -42,6 +42,18 @@ public class Solution {
                     count++;
                 }
             }
-            return lineGraph;
+            return find(lineGraph);
+        }
+        
+          public int[] find(int[] arr) {
+            int[] res = new int[arr.length -1];
+            int k = 0;
+            res[k++] = 0;
+            for (int i = 0; i < arr.length - 1; i++) {
+                if (arr[i] == 0) {continue;}
+                res[k++] = arr[i];
+                i = arr[i] - 1;
+            }
+            return res;
         }
 ```
