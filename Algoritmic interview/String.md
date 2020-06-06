@@ -75,20 +75,22 @@ class Solution {
 https://leetcode.com/problems/longest-substring-without-repeating-characters/
 
 ```java
-public class Solution {
     public int lengthOfLongestSubstring(String s) {
-        int len = s.length(), count = 0;
-        Map<Character, Integer> map = new HashMap<>();
-        for (int j = 0, i = 0; j < len; j++) {
-            if (map.containsKey(s.charAt(j))) {
-                i = Math.max(map.get(s.charAt(j)), i);
+          int max = 0, j = 0;
+
+        Set<Character> uniq = new HashSet<>();
+        for (int i = 0; i < s.length(); i++) {
+
+            char c = s.charAt(i);
+            while(uniq.contains(c)) {
+                uniq.remove(s.charAt(j));
+                j++;
             }
-            count = Math.max(ans, j - i + 1);
-            map.put(s.charAt(j), j + 1);
+            uniq.add(c);
+            max = Math.max(uniq.size(), max);
         }
-        return count;
+        return max;   
     }
-}
 ```
 ## Find Max Unique Substring
 ```java
