@@ -3,6 +3,7 @@
 + [Group Anagrams](#Group-Anagrams)
 + [Longest Palindromic Substring](#Longest-Palindromic-Substring)
 + [Longest Substring Without Repeating Characters](#Longest-Substring-Without-Repeating-Characters)
++ [Find Max Unique Substring](#Find-Max-Unique-Substring)
 
 ## Group Anagrams
 https://leetcode.com/problems/group-anagrams/
@@ -89,3 +90,21 @@ public class Solution {
     }
 }
 ```
+## Find Max Unique Substring
+```java
+public static String find(String s) {
+        Map<Character, Integer> visited = new HashMap<>();
+        String result = "";
+       for (int start = 0, end = 0; end < s.length(); end++) {
+           char currChar = s.charAt(end);
+           if (visited.containsKey(currChar)) {
+               start = Math.max(visited.get(currChar)+1, start);
+           }
+           if (s.length() < end - start + 1) {
+               result = s.substring(start, end + 1);
+           }
+           visited.put(currChar, end);
+       }
+        return result;
+   }
+   ```
