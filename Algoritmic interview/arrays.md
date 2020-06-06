@@ -5,6 +5,7 @@
 + [Remove duplicates from array](#Remove-duplicates-from-array)
 + [Find First and Last Position of Element in Sorted Array](#Find-First-and-Last-Position-of-Element-in-Sorted-Array)
 + [Rotate matrix](#Rotate-matrix)
++ [Squares of a Sorted Array](#Squares-of-a-Sorted-Array)
 
 ## Find the Duplicate Number
 Find First and Last Position of Element in Sorted Array
@@ -141,3 +142,25 @@ public class searchRange {
         }
         return arr;
     }
+ ```
+ ## Squares of a Sorted Array
+ ```java 
+ public static int[] sortedSquares(int[] arr) {
+      int i = 0;
+      int len = arr.length;
+      int right = arr.length - 1;
+      int k = len - 1;
+      int[] mas = new int[len];
+      while (k >= 0) {
+          if (Math.abs(arr[i]) < Math.abs(arr[right])) {
+              mas[k] = arr[right] * arr[right];
+              right--;
+          }else {
+            mas[k] = arr[i] * arr[i];
+           i++;
+          }
+         k--;                                
+  }
+      return mas;
+}
+```
