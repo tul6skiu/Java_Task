@@ -26,6 +26,7 @@ public static void sortStack(Deque<Integer> stack) {
 }       
 ```
 ## Стек с поддержкой минимального элемента
+```java
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Stack;
@@ -55,3 +56,4 @@ public class MinStack extends Stack<Integer> {
         return minStack.isEmpty() ? Integer.MAX_VALUE : minStack.peek();
     }
 }
+```
